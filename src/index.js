@@ -1,11 +1,38 @@
+function refreshWeather(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let temperature = response.data.temperature.current;
+  let cityElement = document.querySelector("#weather-city-name");
+
+
+  cityElement.innerHTML = response.data.city
+  temperatureElement.innerHTML = Math.round(temperature)
+}
+
+
+
+
+
+
+
+function searchCity(city) {
+let apiKey = "ab9d5a54441t2501e86dfdb9a436be3o"
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(refreshWeather)
+
+}
+
+
+
 function handleSearchSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-form-input");
-  let cityElement = document.querySelector("#weather-city-name");
-  cityElement.innerHTML = searchInput.value;
+ 
+  searchCity(searchInput.value);
 }
 
 
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit)
+
+searchCity("Vancouver");
