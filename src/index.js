@@ -7,18 +7,22 @@ function refreshWeather(response) {
   let windSpeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
-  let iconElement = document.querySelector("#icon")
+  let iconElement = document.querySelector("#icon");
 
-  console.log(response.data.condition.description);
 
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
+
+  getForecast(response.data.city)
 }
+
+
+
 
 
 function formatDate(date) {
@@ -32,16 +36,15 @@ function formatDate(date) {
     "Thursday",
     "Friday",
     "Saturday",
-    
   ];
 
   let day = days[date.getDay()];
 
   if (minutes < 10) {
-    minutes = `0${minutes}`
+    minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`
+  return `${day} ${hours}:${minutes}`;
 }
 
 function searchCity(city) {
@@ -57,7 +60,60 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
+
+function getForecast(city) {
+  let apiKey = "ab9d5a54441t2501e86dfdb9a436be3o";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+  axios(apiUrl).then(displayForecast)
+
+
+console.log(apiUrl)
+
+
+}
+
+
+
+
+function displayForecast(response) {
+
+  console.log(response.data)
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+    <div class="weather-forecast-day">
+      <div class="weather-forecast-date">${day}</div>
+      <div class="weather-forecast-icon">🌤</div>
+      <div class="weather-forecast-temperatures">
+
+
+
+      <div class="weather-forecast-temperature">
+        <strong>15°</strong>
+      </div>
+      <div class="weather-forecast-temperature">9°</div>
+      </div>
+
+    </div>
+    `;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+
+
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Vancouver");
+
+displayForecast();

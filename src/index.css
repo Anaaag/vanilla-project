@@ -103,25 +103,27 @@ footer {
   font-weight: 500;
 }
 
-.weather-forcast {
+.weather-forecast {
+  display: flex;
   margin-top: 20px;
-  
+  justify-content: space-around;
   
  
   
 
 }
 
-.weather-forcast-date { 
+.weather-forecast-date { 
   font-size: 16px;
   opacity: 0.5;
+  text-align: center;
 
 }
 
-.weather-forcast-temperatures { 
+.weather-forecast-temperatures { 
   font-size: 13px;
 }
 
-.weather-forcast-temperature-min { 
+.weather-forecast-temperature-min { 
   opacity: 0.5;
 }
