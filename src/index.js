@@ -20,7 +20,7 @@ function refreshWeather(response) {
   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeedElement.innerHTML = `${response.data.wind.speed}km/h`;
   temperatureElement.innerHTML = Math.round(temperature);
-  feelsLikeElement.innerHTML = response.data.temperature.feels_like;
+  feelsLikeElement.innerHTML = `${response.data.temperature.feels_like}°`;
   
   getForecast(response.data.city);
 }
@@ -145,12 +145,13 @@ function displayForecast(response) {
       
       
       <div class="weather-forecast-temperature">
-      <strong>${Math.round(day.temperature.maximum)}°</strong>
+      <strong>H: ${Math.round(day.temperature.maximum)}°</strong>
       </div>
-      <div class="weather-forecast-temperature">${Math.round(
+      <div class="weather-forecast-temperature">L: ${Math.round(
         day.temperature.minimum
         )}°</div>
         </div>
+        <div class="description">${day.condition.description}</div>
         
         </div>
         `;
