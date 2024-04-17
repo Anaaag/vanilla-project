@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body">
     <div class="weather-app">
       <header>
         <form class="search-form" id="search-form">
@@ -36,7 +36,7 @@
             class="search-input"
           />
           <input type="submit" value="search" class="search-button" />
-          <button class="dark-mode-button">dark mode</button>
+          <input type="button" class="dark-mode-button" id="dark-theme" value="change theme" />
         </form>
       </header>
       <main>
@@ -57,7 +57,7 @@
             <div class="weather-app-temperature" id="temperature"></div>
             <div class="weather-app-unit">
               <a href="#" class="active" id="celsiusTemp">°C</a> |
-              <a href="#" id="fahrenheitTemp">F</a>
+              <a href="#" class="f" id="fahrenheitTemp">°F</a>
             </div>
 
             <!-- id="celsius">°C|</div>

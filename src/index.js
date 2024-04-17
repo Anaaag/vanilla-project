@@ -1,3 +1,20 @@
+function changeTheme() {
+  let body = document.querySelector("body")
+
+  if(body.classList.contains("dark")) {
+    body.classList.remove("dark");
+  } else {
+    body.classList.add("dark")
+  }
+
+}
+
+let themeButton = document.querySelector("#dark-theme")
+themeButton.addEventListener("click", changeTheme)
+
+
+
+
 function refreshWeather(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
@@ -171,7 +188,6 @@ function displayForecast(response) {
   
   searchCity("Vancouver");
   displayForecast();
-  
   
   
   
