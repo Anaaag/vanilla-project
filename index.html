@@ -11,9 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="weather-app">
@@ -27,13 +36,13 @@
             class="search-input"
           />
           <input type="submit" value="search" class="search-button" />
-          <button class="dark-mode">dark mode</button>
+          <button class="dark-mode-button">dark mode</button>
         </form>
       </header>
       <main>
         <div class="current-date-details">
-          <h2 class="location">Location </h2>
-          <h1 class="weather-city" id="weather-city-name" ></h1>
+          <h2 class="location">Location</h2>
+          <h1 class="weather-city" id="weather-city-name"></h1>
           <p class="date-details">
             <span id="time"></span>
             <span id="current-date"></span>
@@ -41,56 +50,33 @@
         </div>
 
         <div class="weather-app-data">
+          <!-- WEATHER TEMP/ICON/DEGREE -->
+          <div class="weather-app-temp-container">
+            <div id="icon"></div>
 
-        <!-- WEATHER TEMP/ICON/DEGREE -->
-        <div class="weather-app-temp-container">
-          <div id="icon"></div>
+            <div class="weather-app-temperature" id="temperature"></div>
+            <div class="weather-app-unit">
+              <a href="#" class="active" id="celsiusTemp">°C</a> |
+              <a href="#" id="fahrenheitTemp">F</a>
+            </div>
 
-          <div  class="weather-app-temperature" id="temperature" ></div>
-          <div class="weather-app-unit">
-            <a href="#" class="active" id="celsiusTemp">°C</a> |
-            <a href="#"  id="fahrenheitTemp">F</a>
+            <!-- id="celsius">°C|</div>
+          <div class="weather-app-unit" id="fahrenheit">F</div> -->
           </div>
 
+          <!-- DESCRIPTIOIN  -->
+          <div>
+            <span class="description-temp" id="description"></span>
+          </div>
 
+          <!-- FEELS LIKE/HUMIDITY/WINDSPEED -->
+          <div class="weather-details">
+            <span> Feels like: <strong id="feels-like"></strong> </span>
 
-           <!-- id="celsius">°C|</div>
-          <div class="weather-app-unit" id="fahrenheit">F</div> -->
-
-
-
-
-
-
+            <span> Humidity: <strong id="humidity"></strong> </span>
+            <span> Wind: <strong id="wind-speed"></strong> </span>
+          </div>
         </div>
-
-        <!-- DESCRIPTIOIN  -->
-        <div>
-          <span class="description-temp" id="description"></span>
-        </div>
-
-        <!-- FEELS LIKE/HUMIDITY/WINDSPEED -->
-        <div class="weather-details">
-
-          <span>
-            Feels like: <strong id="feels-like"></strong>
-
-          </span>
-
-
-         <span>
-          Humidity:<strong id="humidity"></strong> 
-         </span> 
-         <span>
-          Wind:<strong id="wind-speed"></strong>
-         </span>
-          
-        </div>
-
-        </div>
-
-
-
 
         <div class="weather-forecast" id="forecast"></div>
         <!-- <div class="row">
