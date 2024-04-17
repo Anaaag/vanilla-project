@@ -109,10 +109,17 @@ a.f {
 }
 
 
+
 .weather-app-unit .active {
   cursor: default;
   color: #172b4d;
 }
+
+.dark .weather-app-unit .active {
+  color: #B6C2CF;
+}
+
+
 
 /* sunday/time  */
 
